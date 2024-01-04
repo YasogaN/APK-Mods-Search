@@ -1,0 +1,13 @@
+# Sources List
+- Androeed - [androeed.store](https://androeed.store) (English version of [androeed.ru](https://androeed.ru))
+- APKMODY - [apkmody.io](https://apkmody.io/)
+- REXDL - [rexdl.com](https://rexdl.com/)
+- DlAndroid - [dlandroid.com](https://dlandroid.com/)
+- BlackMod - [blackmod.net](https://blackmod.net/)
+- 4PDA Forum - [4pda.ru](https://4pda.to/forum/)
+- ApkMos - [apkmos.com](https://apkmos.com/)
+- ACMarket - [acmarket.net](https://acmarket.net/)
+- ApkHouse - [apkhouse.com](https://apkhouse.com/)
+- APKMB - [apkmb.com](https://apkmb.com/)
+- Revdl - [revdl.com](https://www.revdl.com/)
+- Mobilism Forum [forum.mobilism.org](https://forum.mobilism.org/)
