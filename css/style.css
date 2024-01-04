@@ -11,6 +11,9 @@ body {
     height: 100%;
     width: 100%;
     line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
@@ -142,6 +145,7 @@ table.gsc-search-box td.gsc-input {
     text-align: center;
     padding-top: 50px;
     color: white;
+    margin-top: auto;
 }
 
 a {
