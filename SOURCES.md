@@ -1,6 +1,5 @@
 # Sources List
 - Androeed - [androeed.store](https://androeed.store) (English version of [androeed.ru](https://androeed.ru))
-- APKMODY - [apkmody.io](https://apkmody.io/)
 - REXDL - [rexdl.com](https://rexdl.com/)
 - DlAndroid - [dlandroid.com](https://dlandroid.com/)
 - BlackMod - [blackmod.net](https://blackmod.net/)
