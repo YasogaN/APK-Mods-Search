@@ -24,27 +24,27 @@ This website/project is intended for educational purposes only. Any information 
 
 ## Sources list
 
-For a comprehensive list of sources indexed in this project, please consult our Sources List at [SOURCES.md](/blob/main/SOURCES.md)
+For a comprehensive list of sources indexed in this project, please consult our Sources List at [SOURCES.md](/SOURCES.md)
 
 ## Privacy Policy
 
-For detailed information regarding our privacy practices, please refer to our official privacy policy at [PRIVACY_POLICY.md](/blob/main/PRIVACY_POLICY.md)
+For detailed information regarding our privacy practices, please refer to our official privacy policy at [PRIVACY_POLICY.md](/PRIVACY_POLICY.md)
 
 ## Terms of Use
 
-For a comprehensive understanding of our terms and conditions, please review our Terms of Use at [TERMS_OF_USE.md](/blob/main/TERMS_OF_USE.md)
+For a comprehensive understanding of our terms and conditions, please review our Terms of Use at [TERMS_OF_USE.md](/TERMS_OF_USE.md)
 
 ## Code of Conduct
 
-To understand the principles and guidelines governing our community behavior, please review our Code of Conduct at [CODE_OF_CONDUCT.md](/blob/main/CODE_OF_CONDUCT.md)
+To understand the principles and guidelines governing our community behavior, please review our Code of Conduct at [CODE_OF_CONDUCT.md](/CODE_OF_CONDUCT.md)
 
 ## Contribution Guidelines
 
-To contribute to our project and understand the process, please refer to our Contribution Guidelines at [CONTRIBUTING.md](/blob/main/CONTRIBUTING.md)
+To contribute to our project and understand the process, please refer to our Contribution Guidelines at [CONTRIBUTING.md](/CONTRIBUTING.md)
 
 ## License
 
-For details about the licensing terms associated with our project, please consult our License at [LICENSE.md](/blob/main/[LICENSE.md).
+For details about the licensing terms associated with our project, please consult our License at [LICENSE.md](/LICENSE.md).
 
 ## Like my work?
 
