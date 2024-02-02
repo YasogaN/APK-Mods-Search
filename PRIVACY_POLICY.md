@@ -4,8 +4,8 @@
 
 Your privacy is of utmost importance to us at APK Mods Search. This privacy policy outlines how we handle, collect, and protect your personal information in compliance with applicable laws and regulations. By using our website (https://apkmodsearch.pages.dev) and associated services, you agree to the terms outlined in this policy.
 
-**Effective Date:** 5 December 2021  
-**Last Updated:** 5 December 2021
+**Effective Date:** 5 January 2024  
+**Last Updated:** 2 February 2024
 
 ## Information We Collect
 
