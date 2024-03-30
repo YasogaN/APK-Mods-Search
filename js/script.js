@@ -1,4 +1,3 @@
-// Check if a certain element is used in index.html
 let elementExists = false;
 
 function checkElement() {
@@ -14,14 +13,14 @@ function checkElement() {
 function displaynone() {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'css/dn.css';
+    link.href = 'css/dn.min.css';
     document.head.appendChild(link);
 }
 
 function displayblock() {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'css/db.css';
+    link.href = 'css/db.min.css';
     document.head.appendChild(link);
 }
 
