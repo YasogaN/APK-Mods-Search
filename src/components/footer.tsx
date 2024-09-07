@@ -9,6 +9,7 @@ export default function Footer() {
             level="title-md"
             mt='auto'
             mb={5}
+            maxWidth={'75vw'}
             sx={{
                 color: 'white'
             }}
