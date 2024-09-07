@@ -1,63 +1,46 @@
+'use client'
 import * as React from 'react';
-import Sheet from '@mui/joy/Sheet';
-import Typography from '@mui/joy/Typography';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import Input from '@mui/joy/Input';
-import Button from '@mui/joy/Button';
-import Link from '@mui/joy/Link';
+import { Button, Input, Stack, Sheet } from "@mui/joy";
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function Home() {
   return (
     <Sheet
       sx={{
         display: 'flex',
-        flexFlow: 'row nowrap',
+        flexFlow: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '100vh',
+        backgroundColor: '#080909'
       }}
     >
-      <Sheet
-        sx={{
-          width: 300,
-          mx: 'auto',
-          my: 4,
-          py: 3,
-          px: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 2,
-          borderRadius: 'sm',
-          boxShadow: 'md',
+      <Header />
+
+
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          const formData = new FormData(event.currentTarget);
+          const formJson = Object.fromEntries(formData.entries());
+          alert(JSON.stringify(formJson));
         }}
-        variant="outlined"
       >
-        <div>
-          <Typography level="h4" component="h1">
-            <strong>Welcome back 👋</strong>
-          </Typography>
-          <Typography level="body-sm">Sign in to continue.</Typography>
-        </div>
-        <FormControl id="email">
-          <FormLabel>Email</FormLabel>
-          <Input name="email" type="email" placeholder="johndoe@email.com" />
-        </FormControl>
-        <FormControl id="password">
-          <FormLabel>Password</FormLabel>
-          <Input name="password" type="password" placeholder="password" />
-        </FormControl>
-        <Button sx={{ mt: 1 }}>Log in</Button>
-        <Typography
-          endDecorator={<Link href="/sign-up">Sign up</Link>}
-          sx={{
-            fontSize: 'sm',
-            alignSelf: 'center',
-          }}
+        <Stack
+          spacing={1}
+          direction="row"
+          alignItems="center"
+          width='75vw'
         >
-          Don&apos;t have an account?
-        </Typography>
-      </Sheet>
+          <Input variant='outlined' name="searchQuery" placeholder="What do you want to search for?" required fullWidth />
+          <Button type="submit"><SearchIcon /></Button>
+        </Stack>
+      </form>
+
+
+      <Footer />
     </Sheet>
   );
 }
