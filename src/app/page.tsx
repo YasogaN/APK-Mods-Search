@@ -34,7 +34,7 @@ export default function Home() {
           alignItems="center"
           width='75vw'
         >
-          <Input variant='outlined' name="searchQuery" placeholder="What do you want to search for?" required fullWidth />
+          <Input variant='outlined' name="q" placeholder="What do you want to search for?" required fullWidth />
           <Button type="submit"><SearchIcon /></Button>
         </Stack>
       </form>
