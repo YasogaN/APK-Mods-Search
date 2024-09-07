@@ -32,6 +32,17 @@ const theme = extendTheme({
         }),
       },
     },
+    JoyLink: {
+      styleOverrides: {
+        root: {
+          color: 'rgb(81, 222, 196)',
+          textDecoration: 'none',
+          '&:hover': {
+            textDecoration: 'none',
+          },
+        },
+      },
+    },
   },
 });
 
