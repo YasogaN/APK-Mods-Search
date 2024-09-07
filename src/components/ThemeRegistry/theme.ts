@@ -1,18 +1,10 @@
 import { extendTheme } from '@mui/joy/styles';
-import { Inter, Source_Code_Pro } from 'next/font/google';
+import { JetBrains_Mono, Source_Code_Pro } from 'next/font/google';
 
-const inter = Inter({
+const jb_mono = JetBrains_Mono({
   subsets: ['latin'],
-  adjustFontFallback: false, // prevent NextJS from adding its own fallback font
-  fallback: ['var(--joy-fontFamily-fallback)'], // use Joy UI's fallback font
-  display: 'swap',
-});
-
-const sourceCodePro = Source_Code_Pro({
-  subsets: ['latin'],
-  adjustFontFallback: false, // prevent NextJS from adding its own fallback font
+  adjustFontFallback: false,
   fallback: [
-    // the default theme's fallback for monospace fonts
     'ui-monospace',
     'SFMono-Regular',
     'Menlo',
@@ -23,13 +15,12 @@ const sourceCodePro = Source_Code_Pro({
     'monospace',
   ],
   display: 'swap',
-});
+})
 
 const theme = extendTheme({
   fontFamily: {
-    body: inter.style.fontFamily,
-    display: inter.style.fontFamily,
-    code: sourceCodePro.style.fontFamily,
+    body: jb_mono.style.fontFamily,
+    display: jb_mono.style.fontFamily,
   },
   components: {
     JoyButton: {
