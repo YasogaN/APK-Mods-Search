@@ -12,6 +12,7 @@
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "@mui/icons-material": "^6.0.2",
     "@mui/joy": "next",
     "next": "latest",
     "react": "latest",
