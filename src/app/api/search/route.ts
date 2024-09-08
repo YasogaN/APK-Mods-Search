@@ -2,9 +2,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
-    const { query, pagenum } = await req.json();
+    const { query, pagenum, cse_tok } = await req.json();
     const page = pagenum * 10;
-    const response = await fetch(`https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&start=${page}&cx=752437097efb4468f&q=${query}&safe=off&cse_tok=AB-tC_4fzs4hlvahzkO-q0KXytzw%3A1725744647538&callback=google.search.cse.api19695`);
+    const response = await fetch(`https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&start=${page}&cx=752437097efb4468f&q=${query}&safe=off&cse_tok=${cse_tok}&callback=google.search.cse.api19695`);
     const data = await response.text();
     const cleaned = await data
         .replace("/*O_o*/", "")
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
             title: result.titleNoFormatting,
             description: result.contentNoFormatting,
             link: result.unescapedUrl,
-            imageUrl: result.richSnippet.cseImage.src,
+            imageUrl: result.richSnippet?.cseThumbnail?.src ?? '',
         };
     });
     return NextResponse.json(results, { status: 200 });
