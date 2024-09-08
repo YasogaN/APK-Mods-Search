@@ -13,6 +13,7 @@ export default function Header() {
                     userSelect: 'none',
                     marginTop: '4vh',
                     marginBottom: '2vh',
+                    maxWidth: '75vh'
                 }}>
                 <img
                     src="./logo.png"
