@@ -33,13 +33,13 @@ export default function ResultCard({ site, title, description, link, imageUrl }:
                                 alignItems: "flex-start",
                             }}
                         >
-                            <Typography textColor="primary.plainColor" level='title-md'>
+                            <Typography textColor="common.white" level='title-md'>
                                 {title}
                             </Typography>
-                            <Typography level="body-sm">
+                            <Typography textColor="primary.plainColor" level="body-sm">
                                 {site}
                             </Typography>
-                            <Typography level="body-xs">
+                            <Typography textColor="#bdbdbd" level="body-xs">
                                 {description}
                             </Typography>
                         </Stack>
