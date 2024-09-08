@@ -1,7 +1,3 @@
-> [!CAUTION]
-> A new version of APK-Mods-Search will be released by the end of this year with sources from FMHY as Megathread sources are not upto date. <br>
-> Use with caution.
-
 <div align="center">
 
 # [APK Mods Search](https://apkmodsearch.pages.dev/)
