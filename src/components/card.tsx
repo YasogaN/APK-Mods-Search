@@ -19,12 +19,14 @@ export default function ResultCard({ site, title, description, link, imageUrl }:
                             alignItems: "center",
                         }}
                     >
-                        <AspectRatio ratio="1" sx={{ width: 50, borderRadius: '10px', }}>
-                            <img
-                                src={imageUrl}
-                                loading="lazy"
-                            />
-                        </AspectRatio>
+                        {imageUrl && (
+                            <AspectRatio ratio="1" sx={{ width: 50, borderRadius: '10px', }}>
+                                <img
+                                    src={imageUrl}
+                                    loading="lazy"
+                                />
+                            </AspectRatio>
+                        )}
                         <Stack
                             direction="column"
                             spacing={0}
