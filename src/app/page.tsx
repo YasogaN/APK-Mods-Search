@@ -5,6 +5,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import SearchIcon from '@mui/icons-material/Search';
 import ResultCard from '@/components/card';
+import { ArrowLeft } from '@mui/icons-material';
 
 export default function Home() {
   const [pagenum, setPagenum] = React.useState(0);
@@ -58,11 +59,12 @@ export default function Home() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setQuerySent(false);
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries(formData.entries());
     const query = formJson.q;
     console.log(query);
-    setQuery(query);
+    setQuery(query.toString());
     setResults([]);
     setPagenum(0);
     setQuerySent(true);
@@ -81,46 +83,88 @@ export default function Home() {
     >
       <Header />
 
-      <form onSubmit={handleSubmit}>
-        <Stack spacing={1} direction="row" alignItems="center" width='75vw'>
-          <Input variant='outlined' name="q" placeholder="What do you want to search for?" required fullWidth />
-          <Button type="submit"><SearchIcon /></Button>
-        </Stack>
-      </form>
+      {!querySent && (
+        <form onSubmit={handleSubmit}>
+          <Stack spacing={1} direction="row" alignItems="center" width='75vw'>
+            <Input variant='outlined' name="q" placeholder="What do you want to search for?" required fullWidth />
+            <Button type="submit"><SearchIcon /></Button>
+          </Stack>
+        </form>
+      )}
 
       {querySent && results.length > 0 && (
-        <Stack spacing={-3} direction="column" sx={{ marginTop: 2 }}>
-          {results.map((result, index) => (
-            <ResultCard key={index} {...result} />
-          ))}
-        </Stack>
-      )}
-
-      {querySent && (
-        <Stack spacing={2} direction="row" sx={{ marginTop: 2 }}>
+        <>
           <Button
-            variant="outlined"
+            variant="soft"
             onClick={() => {
-              if (pagenum > 0) {
-                setPagenum(pagenum - 1);
+              window.location.reload();
+            }}
+            sx={{
+              marginTop: 2,
+              color: 'white',
+              backgroundColor: '#1c4020',
+              '&:hover': {
+                backgroundColor: '#1c3020',
               }
             }}
-            disabled={pagenum === 0}
-          >
-            Previous Page
+              >
+              <ArrowLeft />Back to Search
           </Button>
-          <Button
-            variant="outlined"
-            onClick={() => {
-              setPagenum(pagenum + 1);
-            }}
-          >
-            Next Page
-          </Button>
-        </Stack>
-      )}
+      <Stack spacing={-3} direction="column" sx={{ marginTop: 2 }}>
+        {results.map((result, index) => (
+          <ResultCard key={index} {...result} />
+        ))}
+      </Stack>
+    </>
+  )
+}
 
-      <Footer />
-    </Sheet>
+{
+  querySent && (
+    <Stack spacing={2} direction="row" sx={{ marginTop: 2 }}>
+      <Button
+        variant="soft"
+        onClick={() => {
+          if (pagenum > 0) {
+            setPagenum(pagenum - 1);
+          }
+        }}
+        disabled={pagenum === 0}
+        sx={{
+          marginTop: 2,
+          color: 'white',
+          backgroundColor: '#1c4020',
+          '&:hover': {
+            backgroundColor: '#1c3020',
+          },
+          '&:disabled': {
+            backgroundColor: '#1c2020',
+          }
+        }}
+      >
+        Previous Page
+      </Button>
+      <Button
+        variant="soft"
+        onClick={() => {
+          setPagenum(pagenum + 1);
+        }}
+        sx={{
+          marginTop: 2,
+          color: 'white',
+          backgroundColor: '#1c4020',
+          '&:hover': {
+            backgroundColor: '#1c3020',
+          }
+        }}
+      >
+        Next Page
+      </Button>
+    </Stack>
+  )
+}
+
+<Footer />
+    </Sheet >
   );
 }
