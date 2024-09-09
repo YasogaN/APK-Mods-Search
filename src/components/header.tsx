@@ -17,7 +17,6 @@ export default function Header() {
                 }}>
                 <img
                     src="./logo.png"
-                    loading="lazy"
                     alt=""
                 />
             </Card>
