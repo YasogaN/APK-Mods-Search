@@ -98,6 +98,7 @@ export default function Home() {
         <>
           <Button
             variant="soft"
+            aria-label="Back to Search Button"
             onClick={() => {
               window.location.reload();
             }}
@@ -126,6 +127,7 @@ export default function Home() {
           <Stack spacing={2} direction="row" sx={{ marginTop: 2, marginBottom: 4 }}>
             <Button
               variant="soft"
+              aria-label="Previous Page Button"
               onClick={() => {
                 if (pagenum > 0) {
                   setPagenum(pagenum - 1);
@@ -148,6 +150,7 @@ export default function Home() {
             </Button>
             <Button
               variant="soft"
+              aria-label="Next Page Button"
               onClick={() => {
                 setPagenum(pagenum + 1);
               }}
