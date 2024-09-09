@@ -38,23 +38,26 @@ export default function Home() {
     }
   }, [pagenum, querySent]);
 
-  const fetchResults = () => {
-    fetch('/api/search', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query, pagenum, cse_tok: csetok }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        setResults(data || []);
-        setQuerySent(data.length > 0); // Set querySent based on results
-      })
-      .catch(error => {
-        alert(error);
-        console.error(error);
-      });
+  const fetchResults = async () => {
+    const page = pagenum * 10;
+    const response = await fetch(`https://corsproxy.io/?https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&start=${page}&cx=752437097efb4468f&q=${query}&safe=off&cse_tok=${csetok}&callback=google.search.cse.api19695`);
+    const data = await response.text();
+    const cleaned = await data
+        .replace("/*O_o*/", "")
+        .replace("google.search.cse.api19695(", "")
+        .replace(/\);$/, "");
+    const json = JSON.parse(cleaned);
+    const results = json.results.map((result: any) => {
+        return {
+            site: result.visibleUrl,
+            title: result.titleNoFormatting,
+            description: result.contentNoFormatting,
+            link: result.unescapedUrl,
+            imageUrl: result.richSnippet?.cseThumbnail?.src ?? '',
+        };
+    });
+    setResults(results || []);
+    setQuerySent(results.length > 0);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -63,7 +66,6 @@ export default function Home() {
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries(formData.entries());
     const query = formJson.q;
-    console.log(query);
     setQuery(query.toString());
     setResults([]);
     setPagenum(0);
@@ -107,64 +109,64 @@ export default function Home() {
                 backgroundColor: '#1c3020',
               }
             }}
-              >
-              <ArrowLeft />Back to Search
+          >
+            <ArrowLeft />Back to Search
           </Button>
-      <Stack spacing={-3} direction="column" sx={{ marginTop: 2 }}>
-        {results.map((result, index) => (
-          <ResultCard key={index} {...result} />
-        ))}
-      </Stack>
-    </>
-  )
-}
+          <Stack spacing={-3} direction="column" sx={{ marginTop: 2 }}>
+            {results.map((result, index) => (
+              <ResultCard key={index} {...result} />
+            ))}
+          </Stack>
+        </>
+      )
+      }
 
-{
-  querySent && (
-    <Stack spacing={2} direction="row" sx={{ marginTop: 2 }}>
-      <Button
-        variant="soft"
-        onClick={() => {
-          if (pagenum > 0) {
-            setPagenum(pagenum - 1);
-          }
-        }}
-        disabled={pagenum === 0}
-        sx={{
-          marginTop: 2,
-          color: 'white',
-          backgroundColor: '#1c4020',
-          '&:hover': {
-            backgroundColor: '#1c3020',
-          },
-          '&:disabled': {
-            backgroundColor: '#1c2020',
-          }
-        }}
-      >
-        Previous Page
-      </Button>
-      <Button
-        variant="soft"
-        onClick={() => {
-          setPagenum(pagenum + 1);
-        }}
-        sx={{
-          marginTop: 2,
-          color: 'white',
-          backgroundColor: '#1c4020',
-          '&:hover': {
-            backgroundColor: '#1c3020',
-          }
-        }}
-      >
-        Next Page
-      </Button>
-    </Stack>
-  )
-}
+      {
+        querySent && (
+          <Stack spacing={2} direction="row" sx={{ marginTop: 2, marginBottom: 4 }}>
+            <Button
+              variant="soft"
+              onClick={() => {
+                if (pagenum > 0) {
+                  setPagenum(pagenum - 1);
+                }
+              }}
+              disabled={pagenum === 0}
+              sx={{
+                marginTop: 2,
+                color: 'white',
+                backgroundColor: '#1c4020',
+                '&:hover': {
+                  backgroundColor: '#1c3020',
+                },
+                '&:disabled': {
+                  backgroundColor: '#1c2020',
+                }
+              }}
+            >
+              Previous Page
+            </Button>
+            <Button
+              variant="soft"
+              onClick={() => {
+                setPagenum(pagenum + 1);
+              }}
+              sx={{
+                marginTop: 2,
+                color: 'white',
+                backgroundColor: '#1c4020',
+                '&:hover': {
+                  backgroundColor: '#1c3020',
+                }
+              }}
+            >
+              Next Page
+            </Button>
+          </Stack>
+        )
+      }
 
-<Footer />
+      <Footer />
     </Sheet >
   );
 }
