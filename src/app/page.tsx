@@ -17,7 +17,7 @@ export default function Home() {
   React.useEffect(() => {
     async function fetchScript() {
       try {
-        const response = await fetch('https://corsproxy.io/?https://cse.google.com/cse.js?cx=752437097efb4468f');
+        const response = await fetch('https://api.codetabs.com/v1/proxy/?quest=https://cse.google.com/cse.js?cx=752437097efb4468f');
         const scriptText = await response.text();
         const tokenMatch = scriptText.match(/"cse_token"\s*:\s*"([^"]+)"/);
         if (tokenMatch && tokenMatch[1]) {
